@@ -81,6 +81,7 @@ class ViewController: UIViewController {
         button.setTitle("7", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 30)
+        button.tag = 7
         return button
     }()
     lazy var button8: UIButton = {
@@ -90,6 +91,7 @@ class ViewController: UIViewController {
         button.setTitle("8", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 30)
+        button.tag = 8
         return button
     }()
     lazy var button9: UIButton = {
@@ -99,6 +101,7 @@ class ViewController: UIViewController {
         button.setTitle("9", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 30)
+        button.tag = 9
         return button
     }()
     lazy var multiplyButton: UIButton = {
@@ -158,7 +161,7 @@ class ViewController: UIViewController {
         button.layer.cornerRadius = 40
         button.setTitle("-", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 45)
-        button.tag = 5
+        //button.tag = 5
         return button
     }()
     
@@ -206,7 +209,7 @@ class ViewController: UIViewController {
         button.layer.cornerRadius = 40
         button.setTitle("+", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 50)
-        button.tag = 6
+        //button.tag = 6
         return button
     }()
     
@@ -240,7 +243,7 @@ class ViewController: UIViewController {
         button.setTitle(",", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 30)
-        button.tag = 7
+        //button.tag = 7
         return button
     }()
     
@@ -250,7 +253,7 @@ class ViewController: UIViewController {
         button.layer.cornerRadius = 40
         button.setTitle("=", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 50)
-        button.tag = 8
+        //button.tag = 8
         return button
     }()
     
@@ -258,6 +261,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .black
         setupConstraints()
+        setupAllTargets()
     }
     
     func setupConstraints() {
@@ -380,15 +384,30 @@ class ViewController: UIViewController {
         ])
         
     }
-    /*
-    private func DynamicH(_ height: Double) -> Double {
-        return UIScreen.main.bounds.height * height / 896
+
+    private func setupAllTargets() {
+        button0.addTarget(self, action: #selector(numberPressed(_:)), for: .touchUpInside)
+        button1.addTarget(self, action: #selector(numberPressed(_:)), for: .touchUpInside)
+        button2.addTarget(self, action: #selector(numberPressed(_:)), for: .touchUpInside)
+        button3.addTarget(self, action: #selector(numberPressed(_:)), for: .touchUpInside)
+        button4.addTarget(self, action: #selector(numberPressed(_:)), for: .touchUpInside)
+        button5.addTarget(self, action: #selector(numberPressed(_:)), for: .touchUpInside)
+        button6.addTarget(self, action: #selector(numberPressed(_:)), for: .touchUpInside)
+        button7.addTarget(self, action: #selector(numberPressed(_:)), for: .touchUpInside)
+        button8.addTarget(self, action: #selector(numberPressed(_:)), for: .touchUpInside)
+        button9.addTarget(self, action: #selector(numberPressed(_:)), for: .touchUpInside)
+    }
+
+    
+    @objc func numberPressed(_ sender: UIButton) {
+        let tag = sender.tag
+        
+        if number.text == "0" {
+            number.text = "\(tag)"
+        } else if let text = number.text {
+            number.text = "\(text)\(tag)"
+        }
     }
     
-    private func DynamicW(_ width: Double) -> Double {
-        return UIScreen.main.bounds.width * width / 414
-    }
-    */
-
 }
 
