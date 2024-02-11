@@ -34,6 +34,7 @@ class MainUIView: UIView {
         button.setTitle("C", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 30)
+        button.tag = 10
         return button
     }()
     
@@ -44,6 +45,7 @@ class MainUIView: UIView {
         button.setTitle("+/-", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
+        button.tag = 11
         return button
     }()
     
@@ -54,6 +56,7 @@ class MainUIView: UIView {
         button.setTitle("%", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
+        button.tag = 12
         return button
     }()
     lazy var divideButton: UIButton = {
@@ -62,6 +65,7 @@ class MainUIView: UIView {
         button.layer.cornerRadius = 40
         button.setTitle("÷", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 45)
+        button.tag = 13
         return button
     }()
     
@@ -110,6 +114,7 @@ class MainUIView: UIView {
         button.layer.cornerRadius = 40
         button.setTitle("×", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 45)
+        button.tag = 14
         return button
     }()
     
@@ -161,7 +166,7 @@ class MainUIView: UIView {
         button.layer.cornerRadius = 40
         button.setTitle("-", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 45)
-        //button.tag = 5
+        button.tag = 15
         return button
     }()
     
@@ -209,7 +214,7 @@ class MainUIView: UIView {
         button.layer.cornerRadius = 40
         button.setTitle("+", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 50)
-        //button.tag = 6
+        button.tag = 16
         return button
     }()
     
@@ -243,7 +248,7 @@ class MainUIView: UIView {
         button.setTitle(",", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 30)
-        //button.tag = 7
+        button.tag = 17
         return button
     }()
     
@@ -253,7 +258,7 @@ class MainUIView: UIView {
         button.layer.cornerRadius = 40
         button.setTitle("=", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 50)
-        //button.tag = 8
+        button.tag = 18
         return button
     }()
 
