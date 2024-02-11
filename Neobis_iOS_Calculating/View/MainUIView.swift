@@ -318,11 +318,11 @@ class MainUIView: UIView {
             gestureRecognizersView.trailingAnchor.constraint(equalTo: trailingAnchor),
             gestureRecognizersView.bottomAnchor.constraint(equalTo: firstRow.topAnchor),
             
-            number.topAnchor.constraint(equalTo: topAnchor, constant: 239),
+            number.bottomAnchor.constraint(equalTo: firstRow.topAnchor, constant: -30),
             number.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             number.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
             
-            firstRow.topAnchor.constraint(equalTo: number.bottomAnchor, constant: 15),
+            firstRow.bottomAnchor.constraint(equalTo: secondRow.topAnchor, constant: -15),
             firstRow.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             firstRow.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
             firstRow.heightAnchor.constraint(equalToConstant: 80),
@@ -339,7 +339,7 @@ class MainUIView: UIView {
             divideButton.heightAnchor.constraint(equalToConstant: 80),
             divideButton.widthAnchor.constraint(equalToConstant: 80),
             
-            secondRow.topAnchor.constraint(equalTo: firstRow.bottomAnchor, constant: 15),
+            secondRow.bottomAnchor.constraint(equalTo: thirdRow.topAnchor, constant: -15),
             secondRow.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             secondRow.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
             secondRow.heightAnchor.constraint(equalToConstant: 80),
@@ -356,7 +356,7 @@ class MainUIView: UIView {
             multiplyButton.heightAnchor.constraint(equalToConstant: 80),
             multiplyButton.widthAnchor.constraint(equalToConstant: 80),
             
-            thirdRow.topAnchor.constraint(equalTo: secondRow.bottomAnchor, constant: 15),
+            thirdRow.bottomAnchor.constraint(equalTo: forthRow.topAnchor, constant: -15),
             thirdRow.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             thirdRow.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
             thirdRow.heightAnchor.constraint(equalToConstant: 80),
@@ -373,7 +373,7 @@ class MainUIView: UIView {
             minusButton.heightAnchor.constraint(equalToConstant: 80),
             minusButton.widthAnchor.constraint(equalToConstant: 80),
             
-            forthRow.topAnchor.constraint(equalTo: thirdRow.bottomAnchor, constant: 15),
+            forthRow.bottomAnchor.constraint(equalTo: fifthRow.topAnchor, constant: -15),
             forthRow.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             forthRow.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
             forthRow.heightAnchor.constraint(equalToConstant: 80),
@@ -390,9 +390,9 @@ class MainUIView: UIView {
             plusButton.heightAnchor.constraint(equalToConstant: 80),
             plusButton.widthAnchor.constraint(equalToConstant: 80),
             
-            fifthRow.topAnchor.constraint(equalTo: forthRow.bottomAnchor, constant: 15),
             fifthRow.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             fifthRow.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
+            fifthRow.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             fifthRow.heightAnchor.constraint(equalToConstant: 80),
             
             button0.heightAnchor.constraint(equalToConstant: 80),
