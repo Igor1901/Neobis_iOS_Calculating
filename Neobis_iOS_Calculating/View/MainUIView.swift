@@ -9,6 +9,12 @@ import UIKit
 
 class MainUIView: UIView {
 
+    lazy var gestureRecognizersView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
+    }()
+    
     lazy var number: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 65)
@@ -34,7 +40,7 @@ class MainUIView: UIView {
         button.setTitle("C", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 30)
-        button.tag = 10
+        //button.tag = 10
         return button
     }()
     
@@ -45,7 +51,7 @@ class MainUIView: UIView {
         button.setTitle("+/-", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
-        button.tag = 11
+        //button.tag = 11
         return button
     }()
     
@@ -56,7 +62,7 @@ class MainUIView: UIView {
         button.setTitle("%", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
-        button.tag = 12
+        //button.tag = 12
         return button
     }()
     lazy var divideButton: UIButton = {
@@ -248,7 +254,7 @@ class MainUIView: UIView {
         button.setTitle(",", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 30)
-        button.tag = 17
+        //button.tag = 17
         return button
     }()
     
@@ -274,7 +280,9 @@ class MainUIView: UIView {
     }
     
     func setupConstraints() {
-        addSubview(number)
+        addSubview(gestureRecognizersView)
+        gestureRecognizersView.addSubview(number)
+        //addSubview(number)
         addSubview(firstRow)
         firstRow.addArrangedSubview(clearButton)
         firstRow.addArrangedSubview(negativeButton)
@@ -302,9 +310,14 @@ class MainUIView: UIView {
         
         
         
-        [number, firstRow, clearButton, negativeButton, percentageButton, divideButton, secondRow, button7, button8, button9, multiplyButton, thirdRow, button4, button5, button6, minusButton, forthRow, button1, button2, button3, plusButton, fifthRow, button0, dotButton, equalButton].forEach {$0.translatesAutoresizingMaskIntoConstraints = false}
+        [gestureRecognizersView, number, firstRow, clearButton, negativeButton, percentageButton, divideButton, secondRow, button7, button8, button9, multiplyButton, thirdRow, button4, button5, button6, minusButton, forthRow, button1, button2, button3, plusButton, fifthRow, button0, dotButton, equalButton].forEach {$0.translatesAutoresizingMaskIntoConstraints = false}
         
         NSLayoutConstraint.activate([
+            gestureRecognizersView.topAnchor.constraint(equalTo: topAnchor),
+            gestureRecognizersView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            gestureRecognizersView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            gestureRecognizersView.bottomAnchor.constraint(equalTo: firstRow.topAnchor),
+            
             number.topAnchor.constraint(equalTo: topAnchor, constant: 239),
             number.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             number.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
