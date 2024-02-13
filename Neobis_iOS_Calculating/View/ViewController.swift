@@ -11,7 +11,7 @@ class ViewController: UIViewController {
 
     
     let mainView = MainUIView()
-    
+    let viewModel = ViewModel()
     
     var firstNumber = 0.0
     var secondNumber = 0.0
@@ -19,26 +19,20 @@ class ViewController: UIViewController {
     var operationPressed = false
     var equalShouldBePressed = false
         
+    override func loadView() {
+        view = mainView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
-        setupMainViewConstraints()
+        //setupMainViewConstraints()
         setupGestureRecognizers()
         setupAllTargets()
     }
     
 
-    private func setupMainViewConstraints(){
-        view.addSubview(mainView)
-        mainView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            mainView.topAnchor.constraint(equalTo: view.topAnchor),
-            mainView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            mainView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            mainView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
-    }
+    
     
     private func setupGestureRecognizers() {
             // Добавляем Gesture Recognizer для смахивания вправо
@@ -91,22 +85,10 @@ class ViewController: UIViewController {
         mainView.percentageButton.addTarget(self, action: #selector(percentagePressed), for: .touchUpInside)
         mainView.dotButton.addTarget(self, action: #selector(dotPressed), for: .touchUpInside)
         
-        mainView.button0.addTarget(self, action: #selector(numberPressed(_:)), for: .touchUpInside)
-        mainView.button1.addTarget(self, action: #selector(numberPressed(_:)), for: .touchUpInside)
-        mainView.button2.addTarget(self, action: #selector(numberPressed(_:)), for: .touchUpInside)
-        mainView.button3.addTarget(self, action: #selector(numberPressed(_:)), for: .touchUpInside)
-        mainView.button4.addTarget(self, action: #selector(numberPressed(_:)), for: .touchUpInside)
-        mainView.button5.addTarget(self, action: #selector(numberPressed(_:)), for: .touchUpInside)
-        mainView.button6.addTarget(self, action: #selector(numberPressed(_:)), for: .touchUpInside)
-        mainView.button7.addTarget(self, action: #selector(numberPressed(_:)), for: .touchUpInside)
-        mainView.button8.addTarget(self, action: #selector(numberPressed(_:)), for: .touchUpInside)
-        mainView.button9.addTarget(self, action: #selector(numberPressed(_:)), for: .touchUpInside)
+        [mainView.button0, mainView.button1, mainView.button2, mainView.button3, mainView.button4, mainView.button5, mainView.button6, mainView.button7, mainView.button8, mainView.button9].forEach {$0.addTarget(self, action: #selector(numberPressed(_:)), for: .touchUpInside)}
         
-        mainView.divideButton.addTarget(self, action: #selector(operationPressed(_:)), for: .touchUpInside)
-        mainView.multiplyButton.addTarget(self, action: #selector(operationPressed(_:)), for: .touchUpInside)
-        mainView.minusButton.addTarget(self, action: #selector(operationPressed(_:)), for: .touchUpInside)
-        mainView.plusButton.addTarget(self, action: #selector(operationPressed(_:)), for: .touchUpInside)
-        mainView.equalButton.addTarget(self, action: #selector(operationPressed(_:)), for: .touchUpInside)
+        [mainView.divideButton, mainView.multiplyButton, mainView.minusButton, mainView.plusButton, mainView.equalButton].forEach {$0.addTarget(self, action: #selector(operationPressed(_:)), for: .touchUpInside)}
+ 
     }
 
     
